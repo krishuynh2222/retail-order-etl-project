@@ -29,24 +29,20 @@ This project involves:
 ## 🗂️ Folder Structure
 ```text
 retail-etl-pipeline/
-├── README.md
-├── .env                     # DB credentials (never commit to GitHub)
-├── requirements.txt
-├── data/
-│   ├── raw/                 # Input data (CSV/JSON)
-│   └── processed/           # Cleaned/transformed data
-├── etl/
-│   ├── __init__.py
-│   ├── extract.py           # Read data from raw files
-│   ├── transform.py         # Clean, join, enrich data
-│   └── load.py              # Load data into PostgreSQL
-├── config/
-│   └── db_config.py         # Uses dotenv to read DB config
-|
+├── datasets/
+│   ├── rawData/                 # Input data (CSV/JSON)
+│   └── processedData/           # Cleaned/transformed data
 ├── diagrams/
-│   └── data_model.drawio    # ER diagram for database tables
+│   └── data_model.drawio        # ER diagram for database tables
+├── etl/
+│   ├── extract.py               # Read data from raw files
+│   ├── transform.py             # Clean, join, enrich data
+│   └── load.py                  # Load data into PostgreSQL
 └── scripts/
-    └── run_etl.py           # Orchestrates the full ETL
+    └── main.py                  # Orchestrates the full ETL
+├── README.md
+├── .env                         # DB credentials (never commit to GitHub)
+├── requirements.txt
 ```
 ---
 ##  ⚙️ ETL Workflow (Retail Scenario)
@@ -72,7 +68,7 @@ retail-etl-pipeline/
   
 ---
 ### 🚀 How to Run
-1. Set up and activate python virtual environment:
+1. Set up and activate Python virtual environment:
   - MacOS/Linux: python3 -m venv env, then source env/bin/activate
   - Windows: python virtualenv env, then ./env/scripts/activate
 2. Install required packages: pip install -r requirements.txt
