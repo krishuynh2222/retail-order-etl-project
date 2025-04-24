@@ -1,3 +1,21 @@
+# Script Purpose: transform.py
+==========================================================================================================
+# This script cleans and transforms raw DataFrames to prepare them for loading into a PostgreSQL database.
+==========================================================================================================
+# It includes:
+# - Individual `transform_*()` functions for each table (customers, orders, etc.)
+# - A `transform_all()` master function that processes all tables at once
+
+# Key tasks include:
+# - Normalizing text
+# - Converting timestamps
+# - Imputing missing values
+# - Removing duplicates
+# - Resetting index
+==========================================================================================================
+# The cleaned DataFrames are then ready to be saved or loaded into a relational database for analysis.
+==========================================================================================================
+
 import pandas as pd
 
 # ------------Clean the Customers Table------------
@@ -63,7 +81,7 @@ def transform_products(df: pd.DataFrame) -> pd.DataFrame:
     - Replace underscores in category names
     - Lowercase and trim whitespace
     - Fill missing category names with 'unknown'
-    - Fill missing numerics with median
+    - Fill in missing numerics with the median
     - Drop duplicates
     - Reset index
     """
