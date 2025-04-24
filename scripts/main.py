@@ -21,7 +21,7 @@ def save_cleaned_data(dfs: dict, output_dir: str = "data/processedData"):
     for name, df in dfs.items():
         output_path = os.path.join(output_dir, f"clean_{name}.csv")
         df.to_csv(output_path, index=False)
-        print(f"✅ Saved cleaned {name} to {output_path}")
+        print(f"Saved cleaned {name} to {output_path}")
 
 # PostgreSQL table schemas (columns in order)
 TABLE_SCHEMAS = {
@@ -36,7 +36,7 @@ TABLE_SCHEMAS = {
 
 #  Main ETL controller
 def main():
-    print("🚀 Starting full ETL pipeline...")
+    print("Starting full ETL pipeline...")
 
     # Extract raw data
     raw_dfs = extract_all_data()
