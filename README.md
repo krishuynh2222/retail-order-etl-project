@@ -19,11 +19,12 @@ This project involves:
 
 ---
 ## 📦 Technology Used
-- **Python** (pandas, psycopg2, dotenv)
-- **PostgreSQL** (local database)
-- **pgAdmin** for GUI access
-- **draw.io** for data modeling
-- **VS Code** for development
+- **Python**: Data processing and database interaction (libraries: pandas, psycopg2, python-dotenv)
+- **PostgreSQL**: Local relational database management
+- **pgAdmin**: Graphical user interface for PostgreSQL
+- **draw.io**: Data modeling and ER diagrams
+- **VS Code**: Code editor for development
+- **Tableau**: Data visualization and dashboard creation
 
 ---
 ## 🗂️ Folder Structure
