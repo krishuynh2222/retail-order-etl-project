@@ -16,31 +16,34 @@
 
 -- 1. CUSTOMERS TABLE
 CREATE TABLE customers (
-    customer_id VARCHAR(50) PRIMARY KEY,
+    customer_id VARCHAR(50),
     customer_zip_code_prefix INT,
     customer_city VARCHAR(50),
-    customer_state VARCHAR(20)
+    customer_state VARCHAR(20),
+	PRIMARY KEY (customer_id)
 );
 
 -- 2. PRODUCTS TABLE
 CREATE TABLE products (
-    product_id VARCHAR(50) PRIMARY KEY,
+    product_id VARCHAR(50),
     product_category_name VARCHAR(100),
     product_weight_g FLOAT,
     product_length_cm FLOAT,
     product_height_cm FLOAT,
-    product_width_cm FLOAT
+    product_width_cm FLOAT,
+	PRIMARY KEY (product_id)
 );
 
 -- 3. ORDERS TABLE
 CREATE TABLE orders (
-    order_id VARCHAR(50) PRIMARY KEY,
+    order_id VARCHAR(50),
     customer_id VARCHAR(50),
     order_status VARCHAR(30),
     order_purchase_timestamp TIMESTAMP,
     order_approved_at TIMESTAMP,
     order_delivered_timestamp TIMESTAMP,
     order_estimated_delivery_date TIMESTAMP,
+	PRIMARY KEY (order_id),
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 
@@ -55,6 +58,7 @@ CREATE TABLE orderitems (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
+
 -- 5. PAYMENTS TABLE
 CREATE TABLE payments (
     order_id VARCHAR(50),
@@ -62,6 +66,5 @@ CREATE TABLE payments (
     payment_type VARCHAR(30),
     payment_installments INT,
     payment_value NUMERIC(10, 2),
-    PRIMARY KEY (order_id, payment_sequential),
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
